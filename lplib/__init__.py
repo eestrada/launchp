@@ -3,8 +3,10 @@ import argparse
 import configparser
 import subprocess
 
-def prnt_err(value, sep=' ', end='\n', file=sys.stderr, flush=True):
-    file.write(str(value) + str(end))
+def prnt_err(*args, sep=' ', end='\n', file=sys.stderr, flush=True):
+    for arg in args:
+        file.write(str(arg) + str(sep))
+    file.write(str(end))
     if flush: file.flush()
 
 def get_preferred():
